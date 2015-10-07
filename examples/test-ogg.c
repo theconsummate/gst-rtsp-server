@@ -21,15 +21,25 @@
 
 #include <gst/rtsp-server/rtsp-server.h>
 
+#include <gst/rtsp-server/rtsp-media-factory.h>
+
 #define DEFAULT_RTSP_PORT "8554"
 
 static char *port = (char *) DEFAULT_RTSP_PORT;
+
+
 
 static GOptionEntry entries[] = {
   {"port", 'p', 0, G_OPTION_ARG_STRING, &port,
       "Port to listen on (default: " DEFAULT_RTSP_PORT ")", "PORT"},
   {NULL}
 };
+
+/*static GstElement *
+my_default_create_element (GstRTSPMediaFactory * factory, const GstRTSPUrl * url)
+{
+  default_create_element(factory, url);
+}*/
 
 int
 main (int argc, char *argv[])
@@ -63,8 +73,8 @@ main (int argc, char *argv[])
 
 // filesrc location=amy.wav ! wavparse ! audioconvert ! audioresample ! alawenc !  rtppcmapay
 
-str = g_strdup_printf ("( "
-      "filesrc location=%s ! wavparse ! audioconvert ! audioresample ! alawenc ! rtppcmapay name=pay0 pt=96 " ")", argv[1]);
+str = "( "
+      "filesrc location=/home/dhruv/Music/%s ! wavparse ! audioconvert ! audioresample ! alawenc ! rtppcmapay name=pay0 pt=96 " ")";
 
 
   /* make a media factory for a test stream. The default media factory can use
@@ -72,8 +82,11 @@ str = g_strdup_printf ("( "
    * any launch line works as long as it contains elements named pay%d. Each
    * element with pay%d names will be a stream */
   factory = gst_rtsp_media_factory_new ();
+//klass = GST_RTSP_MEDIA_FACTORY_GET_CLASS (factory);
+//klass->create_element = my_default_create_element;
+
   gst_rtsp_media_factory_set_launch (factory, str);
-  g_free (str);
+  //g_free (str);
 
   /* attach the test factory to the /test url */
   gst_rtsp_mount_points_add_factory (mounts, "/test", factory);

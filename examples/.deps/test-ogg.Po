@@ -359,7 +359,7 @@ test-ogg.o: test-ogg.c /usr/include/stdc-predef.h \
  ../gst/rtsp-server/rtsp-token.h ../gst/rtsp-server/rtsp-mount-points.h \
  ../gst/rtsp-server/rtsp-sdp.h \
  ../gst/rtsp-server/rtsp-media-factory-uri.h \
- ../gst/rtsp-server/rtsp-params.h
+ ../gst/rtsp-server/rtsp-params.h ../gst/rtsp-server/rtsp-media-factory.h
 
 /usr/include/stdc-predef.h:
 
@@ -1160,3 +1160,5 @@ test-ogg.o: test-ogg.c /usr/include/stdc-predef.h \
 ../gst/rtsp-server/rtsp-media-factory-uri.h:
 
 ../gst/rtsp-server/rtsp-params.h:
+
+../gst/rtsp-server/rtsp-media-factory.h:
