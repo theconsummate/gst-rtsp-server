@@ -1,2 +1,4 @@
-gst/rtsp-server/.deps/*
-gst/rtsp-server/.libs/*
+/gst/rtsp-server/.deps/*
+/gst/rtsp-server/.libs/*
+/examples/.deps/*
+/examples/.libs/*
