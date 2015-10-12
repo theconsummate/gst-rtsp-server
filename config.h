@@ -17,13 +17,13 @@
 #define DEFAULT_VISUALIZER "goom"
 
 /* The GIO library directory. */
-#define GIO_LIBDIR "/usr/lib/x86_64-linux-gnu"
+#define GIO_LIBDIR "/usr/local/lib"
 
 /* The GIO modules directory. */
-#define GIO_MODULE_DIR "/usr/lib/x86_64-linux-gnu/gio/modules"
+#define GIO_MODULE_DIR "/usr/local/lib/gio/modules"
 
 /* The GIO install prefix. */
-#define GIO_PREFIX "/usr"
+#define GIO_PREFIX "/usr/local"
 
 /* Defined if gcov is enabled to force a rebuild due to config.h changing */
 /* #undef GST_GCOV_ENABLED */

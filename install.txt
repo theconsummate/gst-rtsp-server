@@ -1,0 +1,5 @@
+apt-get install libcap-dev
+
+apt-get install intltool
+sudo apt-get install libjson0 libjson0-dev
+

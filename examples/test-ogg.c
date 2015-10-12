@@ -71,10 +71,12 @@ main (int argc, char *argv[])
    * that be used to map uri mount points to media factories */
   mounts = gst_rtsp_server_get_mount_points (server);
 
-// filesrc location=amy.wav ! wavparse ! audioconvert ! audioresample ! alawenc !  rtppcmapay
+// filesrc location=amy.wav ! wavparse ! audioconvert ! audioresample ! alawenc !  rtppcmapay  audioconvert  ! audioresample ! vorbisenc
+// /home/dhruv/Music/
 
 str = "( "
-      "filesrc location=/home/dhruv/Music/%s ! wavparse ! audioconvert ! audioresample ! alawenc ! rtppcmapay name=pay0 pt=96 " ")";
+      "flitesrc location=%s ! wavparse ! audioconvert ! audioresample ! alawenc ! rtppcmapay name=pay0 pt=96 "
+	 ")";
 
 
   /* make a media factory for a test stream. The default media factory can use

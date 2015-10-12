@@ -3977,9 +3977,13 @@ gst_rtsp_media_set_state (GstRTSPMedia * media, GstState state,
   g_rec_mutex_lock (&priv->state_lock);
   if (priv->status == GST_RTSP_MEDIA_STATUS_ERROR)
     goto error_status;
-  if (priv->status != GST_RTSP_MEDIA_STATUS_PREPARED &&
-      priv->status != GST_RTSP_MEDIA_STATUS_SUSPENDED)
-    goto not_prepared;
+
+if (priv->status != GST_RTSP_MEDIA_STATUS_PREPARED &&
+      priv->status != GST_RTSP_MEDIA_STATUS_SUSPENDED){
+	GST_WARNING ("media %d was not prepared", priv->status);  
+	goto not_prepared;
+}
+
 
   /* NULL and READY are the same */
   if (state == GST_STATE_READY)
